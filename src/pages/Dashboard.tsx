@@ -1,6 +1,5 @@
-
 import React from "react";
-import { ArrowUpRight, Beaker, Calculator, CheckCircle, Clock, Flask } from "lucide-react";
+import { ArrowUpRight, Beaker, Calculator, CheckCircle, Clock, FlaskConical } from "lucide-react";
 import MetricCard from "@/components/dashboard/MetricCard";
 import TrendChart from "@/components/dashboard/TrendChart";
 import RecentSamples from "@/components/dashboard/RecentSamples";
@@ -22,7 +21,7 @@ const Dashboard = () => {
           title="Total Samples"
           value="235"
           description="Last 30 days"
-          icon={<Flask className="h-4 w-4 text-primary" />}
+          icon={<FlaskConical className="h-4 w-4 text-primary" />}
           trend={{ value: "12%", positive: true }}
           delay={100}
         />

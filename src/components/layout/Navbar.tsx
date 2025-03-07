@@ -1,8 +1,7 @@
-
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import { cn } from "@/lib/utils";
-import { Database, BarChart3, Flask, Settings, Menu, X } from "lucide-react";
+import { Database, BarChart3, FlaskConical, Settings, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const Navbar = () => {
@@ -11,7 +10,7 @@ const Navbar = () => {
 
   const navLinks = [
     { name: "Dashboard", path: "/", icon: <Database className="h-4 w-4 mr-2" /> },
-    { name: "Samples", path: "/samples", icon: <Flask className="h-4 w-4 mr-2" /> },
+    { name: "Samples", path: "/samples", icon: <FlaskConical className="h-4 w-4 mr-2" /> },
     { name: "Reports", path: "/reports", icon: <BarChart3 className="h-4 w-4 mr-2" /> },
     { name: "Settings", path: "/settings", icon: <Settings className="h-4 w-4 mr-2" /> },
   ];
