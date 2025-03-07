@@ -7,16 +7,28 @@ import SampleForm from "@/components/samples/SampleForm";
 import { sampleData } from "@/lib/data";
 import { Plus } from "lucide-react";
 import AnimatedContainer from "@/components/ui/AnimatedContainer";
+import { useToast } from "@/components/ui/use-toast";
 
 const Samples = () => {
   const [activeTab, setActiveTab] = useState("all");
+  const { toast } = useToast();
+
+  const handleTabChange = (value: string) => {
+    setActiveTab(value);
+    if (value === "add-new") {
+      toast({
+        title: "Add New Sample",
+        description: "Fill in the form to add a new sample",
+      });
+    }
+  };
 
   return (
     <div className="page-container">
       <div className="flex flex-col gap-2 mb-8">
         <div className="flex justify-between items-center">
           <h1 className="text-3xl font-bold tracking-tight">Samples</h1>
-          <Button onClick={() => setActiveTab("add-new")}>
+          <Button onClick={() => handleTabChange("add-new")}>
             <Plus className="mr-2 h-4 w-4" /> Add New Sample
           </Button>
         </div>
@@ -26,7 +38,7 @@ const Samples = () => {
       </div>
 
       <AnimatedContainer animation="fade">
-        <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
+        <Tabs value={activeTab} onValueChange={handleTabChange} className="w-full">
           <TabsList className="grid grid-cols-2 sm:grid-cols-4 w-full mb-8">
             <TabsTrigger value="all" className="text-sm">All Samples</TabsTrigger>
             <TabsTrigger value="pending" className="text-sm">Pending</TabsTrigger>

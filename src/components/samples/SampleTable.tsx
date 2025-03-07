@@ -105,7 +105,7 @@ const SampleTable = ({ samples: initialSamples }: SampleTableProps) => {
                   <SelectValue placeholder="Status" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="">All Statuses</SelectItem>
+                  <SelectItem value="all">All Statuses</SelectItem>
                   <SelectItem value="pending">Pending</SelectItem>
                   <SelectItem value="in-progress">In Progress</SelectItem>
                   <SelectItem value="completed">Completed</SelectItem>
@@ -121,7 +121,7 @@ const SampleTable = ({ samples: initialSamples }: SampleTableProps) => {
                   <SelectValue placeholder="Type" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="">All Types</SelectItem>
+                  <SelectItem value="all">All Types</SelectItem>
                   <SelectItem value="water">Water</SelectItem>
                   <SelectItem value="soil">Soil</SelectItem>
                   <SelectItem value="air">Air</SelectItem>
