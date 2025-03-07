@@ -4,7 +4,7 @@ import { toast } from "sonner";
 import LabForm from "@/components/laboratory/LabForm";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { TestTubes, Flasks, Activity } from "lucide-react";
+import { TestTubes, FlaskConical, Activity } from "lucide-react";
 
 const Laboratory = () => {
   const [activeTab, setActiveTab] = React.useState("both");
@@ -41,7 +41,7 @@ const Laboratory = () => {
                   Clinical
                 </TabsTrigger>
                 <TabsTrigger value="research" className="flex items-center text-teal-500">
-                  <Flasks className="h-4 w-4 mr-2" />
+                  <FlaskConical className="h-4 w-4 mr-2" />
                   Research
                 </TabsTrigger>
               </TabsList>
