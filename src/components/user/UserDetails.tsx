@@ -11,6 +11,7 @@ interface UserDetailProps {
   name: string;
   email: string;
   role: string;
+  department?: string;
   joinDate?: string;
 }
 
@@ -19,6 +20,7 @@ const UserDetails: React.FC<UserDetailProps> = ({
   name, 
   email, 
   role, 
+  department,
   joinDate = "May 2023" // Default value
 }) => {
   const navigate = useNavigate();
@@ -71,6 +73,14 @@ const UserDetails: React.FC<UserDetailProps> = ({
             <span className="font-medium text-muted-foreground">Role:</span>
             <span>{role}</span>
           </div>
+          
+          {department && (
+            <div className="flex items-center gap-2 text-sm">
+              <Briefcase className="h-4 w-4 text-purple-600" />
+              <span className="font-medium text-muted-foreground">Department:</span>
+              <span>{department}</span>
+            </div>
+          )}
           
           <div className="flex items-center gap-2 text-sm">
             <Calendar className="h-4 w-4 text-purple-600" />
