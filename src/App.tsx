@@ -52,13 +52,14 @@ const App = () => {
                   <Route path="/login" element={<Login />} />
                   
                   {/* Protected routes with different access levels */}
-                  <Route path="/" element={
+                  <Route path="/" element={<Navigate to="/dashboard" replace />} />
+                  <Route path="/dashboard" element={
                     <AuthGuard requiredAccessLevel="member">
                       <Dashboard />
                     </AuthGuard>
                   } />
-                  <Route path="/dashboard" element={
-                    <AuthGuard requiredAccessLevel="member">
+                  <Route path="/database" element={
+                    <AuthGuard requiredAccessLevel="worker">
                       <Dashboard />
                     </AuthGuard>
                   } />

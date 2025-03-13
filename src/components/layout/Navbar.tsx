@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { cn } from "@/lib/utils";
-import { Database, BarChart3, FlaskConical, Settings, Menu, X, TestTubes, User } from "lucide-react";
+import { Database, BarChart3, FlaskConical, Settings, Menu, X, TestTubes, User, Server } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 
@@ -26,7 +26,8 @@ const Navbar = () => {
   }, []);
 
   const navLinks = [
-    { name: "Dashboard", path: "/", icon: <Database className="h-4 w-4 mr-2" /> },
+    { name: "Dashboard", path: "/dashboard", icon: <Database className="h-4 w-4 mr-2" /> },
+    { name: "Database", path: "/database", icon: <Server className="h-4 w-4 mr-2" /> },
     { name: "Samples", path: "/samples", icon: <FlaskConical className="h-4 w-4 mr-2" /> },
     { name: "Laboratory", path: "/laboratory", icon: <TestTubes className="h-4 w-4 mr-2" /> },
     { name: "Reports", path: "/reports", icon: <BarChart3 className="h-4 w-4 mr-2" /> },

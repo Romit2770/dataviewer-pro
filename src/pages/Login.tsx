@@ -15,7 +15,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 
 // Define a schema for form validation
 const formSchema = z.object({
-  userId: z.string().min(7, { message: "User ID must be at least 7 characters" })
+  userId: z.string().min(1, { message: "User ID is required" })
     .regex(/^\d{2}(hd|wk|mb)\d{3}$/, { 
       message: "ID format should be YYxxNNN (e.g., 25hd001, 25wk002, 25mb003)" 
     }),
@@ -42,7 +42,7 @@ const mockUsers: User[] = [
     email: "alex.johnson@datalab.com" 
   },
   { 
-    id: "25wk002", 
+    id: "25wk001", 
     name: "Sam Thompson", 
     role: "Lab Worker", 
     department: "Testing",
@@ -50,7 +50,7 @@ const mockUsers: User[] = [
     email: "sam.thompson@datalab.com" 
   },
   { 
-    id: "25mb003", 
+    id: "25mb001", 
     name: "Jamie Davis", 
     role: "Company Member", 
     department: "Management",
@@ -58,7 +58,7 @@ const mockUsers: User[] = [
     email: "jamie.davis@datalab.com" 
   },
   { 
-    id: "25hd004", 
+    id: "25hd002", 
     name: "Morgan Wright", 
     role: "Lab Administrator", 
     department: "Operations",
@@ -66,7 +66,7 @@ const mockUsers: User[] = [
     email: "morgan.wright@datalab.com" 
   },
   { 
-    id: "25wk005", 
+    id: "25wk002", 
     name: "Taylor Lee", 
     role: "Lab Technician", 
     department: "Analysis",
@@ -231,8 +231,8 @@ const Login = () => {
                   <p>Demo accounts:</p>
                   <div className="mt-1 space-y-1">
                     <p><span className="font-medium">25hd001</span> - Handler (Full access)</p>
-                    <p><span className="font-medium">25wk002</span> - Worker (Read/Write access)</p>
-                    <p><span className="font-medium">25mb003</span> - Member (Read-only access)</p>
+                    <p><span className="font-medium">25wk001</span> - Worker (Read/Write access)</p>
+                    <p><span className="font-medium">25mb001</span> - Member (Read-only access)</p>
                   </div>
                   <p className="mt-2 text-xs">(Use any password with 6+ characters)</p>
                 </div>
