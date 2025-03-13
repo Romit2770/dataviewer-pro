@@ -1,13 +1,29 @@
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { cn } from "@/lib/utils";
-import { Database, BarChart3, FlaskConical, Settings, Menu, X, TestTubes } from "lucide-react";
+import { Database, BarChart3, FlaskConical, Settings, Menu, X, TestTubes, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+
+interface UserData {
+  id: string;
+  name: string;
+  email: string;
+  role: string;
+}
 
 const Navbar = () => {
   const location = useLocation();
   const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
+  const [user, setUser] = useState<UserData | null>(null);
+
+  useEffect(() => {
+    const userData = localStorage.getItem("currentUser");
+    if (userData) {
+      setUser(JSON.parse(userData));
+    }
+  }, []);
 
   const navLinks = [
     { name: "Dashboard", path: "/", icon: <Database className="h-4 w-4 mr-2" /> },
@@ -47,7 +63,34 @@ const Navbar = () => {
               {link.name}
             </Link>
           ))}
+          {user && (
+            <Link
+              to="/profile"
+              className={cn(
+                "flex items-center text-sm font-medium transition-colors hover:text-primary",
+                location.pathname === "/profile"
+                  ? "text-primary"
+                  : "text-muted-foreground"
+              )}
+            >
+              <User className="h-4 w-4 mr-2" />
+              Profile
+            </Link>
+          )}
         </nav>
+
+        {/* User Avatar */}
+        {user && (
+          <div className="hidden md:flex items-center gap-2">
+            <Link to="/profile">
+              <Avatar className="h-8 w-8 border border-border hover:ring-2 hover:ring-primary/20 transition-all">
+                <AvatarFallback className="bg-purple-100 text-purple-700">
+                  {user.name.split(' ').map(n => n[0]).join('')}
+                </AvatarFallback>
+              </Avatar>
+            </Link>
+          </div>
+        )}
 
         {/* Mobile Menu Button */}
         <Button
@@ -84,6 +127,21 @@ const Navbar = () => {
                   {link.name}
                 </Link>
               ))}
+              {user && (
+                <Link
+                  to="/profile"
+                  className={cn(
+                    "flex items-center text-sm font-medium py-2 transition-colors hover:text-primary",
+                    location.pathname === "/profile"
+                      ? "text-primary"
+                      : "text-muted-foreground"
+                  )}
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  <User className="h-4 w-4 mr-2" />
+                  Profile
+                </Link>
+              )}
             </nav>
           </div>
         )}
