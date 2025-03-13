@@ -51,44 +51,44 @@ const App = () => {
                   {/* Public routes */}
                   <Route path="/login" element={<Login />} />
                   
-                  {/* Protected routes */}
+                  {/* Protected routes with different access levels */}
                   <Route path="/" element={
-                    <AuthGuard>
+                    <AuthGuard requiredAccessLevel="member">
                       <Dashboard />
                     </AuthGuard>
                   } />
                   <Route path="/dashboard" element={
-                    <AuthGuard>
+                    <AuthGuard requiredAccessLevel="member">
                       <Dashboard />
                     </AuthGuard>
                   } />
                   <Route path="/samples" element={
-                    <AuthGuard>
+                    <AuthGuard requiredAccessLevel="member">
                       <Samples />
                     </AuthGuard>
                   } />
                   <Route path="/samples/:id" element={
-                    <AuthGuard>
+                    <AuthGuard requiredAccessLevel="member">
                       <SampleDetails />
                     </AuthGuard>
                   } />
                   <Route path="/laboratory" element={
-                    <AuthGuard>
+                    <AuthGuard requiredAccessLevel="worker">
                       <Laboratory />
                     </AuthGuard>
                   } />
                   <Route path="/reports" element={
-                    <AuthGuard>
+                    <AuthGuard requiredAccessLevel="member">
                       <Reports />
                     </AuthGuard>
                   } />
                   <Route path="/settings" element={
-                    <AuthGuard>
+                    <AuthGuard requiredAccessLevel="handler">
                       <Settings />
                     </AuthGuard>
                   } />
                   <Route path="/profile" element={
-                    <AuthGuard>
+                    <AuthGuard requiredAccessLevel="member">
                       <UserProfile />
                     </AuthGuard>
                   } />
