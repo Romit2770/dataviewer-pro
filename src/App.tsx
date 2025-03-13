@@ -8,6 +8,7 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Navbar from "./components/layout/Navbar";
 import Footer from "./components/layout/Footer";
 import Dashboard from "./pages/Dashboard";
+import Database from "./pages/Database";
 import Samples from "./pages/Samples";
 import SampleDetails from "./pages/SampleDetails";
 import Laboratory from "./pages/Laboratory";
@@ -60,7 +61,7 @@ const App = () => {
                   } />
                   <Route path="/database" element={
                     <AuthGuard requiredAccessLevel="worker">
-                      <Dashboard />
+                      <Database />
                     </AuthGuard>
                   } />
                   <Route path="/samples" element={
